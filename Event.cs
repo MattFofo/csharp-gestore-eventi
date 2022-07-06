@@ -76,7 +76,7 @@ namespace csharp_gestore_eventi
             uint nSeats = uint.Parse(Console.ReadLine());
             try
             {
-                this.maxNumberOfSeat = nSeats;
+                this.maxNumberOfSeat -= nSeats;
             }
             catch (Exception)
             {
