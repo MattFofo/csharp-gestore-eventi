@@ -9,12 +9,11 @@
 using csharp_gestore_eventi;
 
 
-string title = "Evento prova";
+string title = "";
 DateTime date = Convert.ToDateTime("22/10/2022");
 uint maxNumberOfSeat = 1200;
 
 
 Event newEvent = new Event(title, date, maxNumberOfSeat);
 
-newEvent.GetTitle();
-Console.WriteLine()
+Console.WriteLine(newEvent.GetTitle());

@@ -18,7 +18,16 @@ namespace csharp_gestore_eventi
 
         public Event(string title, DateTime date, uint maxNumberOfSeat, uint numberOfSeatsReserved = 0)
         {
-            this.title = title;
+            if (title == "")
+            {
+                Console.WriteLine("il titolo non puo essere vuoto, inseriscilo");
+                string newTitle = Console.ReadLine();
+                this.title = newTitle;
+            } else
+            {
+                this.title = title;
+
+            }
             this.date = date;
             this.maxNumberOfSeat = maxNumberOfSeat;
             this.numberOfSeatsReserved = numberOfSeatsReserved;
