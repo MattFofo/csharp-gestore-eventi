@@ -55,7 +55,30 @@ namespace csharp_gestore_eventi
 
                 this.date = date;
             }
-            this.maxNumberOfSeat = maxNumberOfSeat;
+            try
+            {
+                if (maxNumberOfSeat == 0)
+                {
+                    while (maxNumberOfSeat == 0)
+                    {
+                        Console.WriteLine("il numero dei posti non può essere 0");
+                        Console.WriteLine("inserisci il numero di posti");
+                        uint NewMaxNumberOfSeat = uint.Parse(Console.ReadLine());
+                        maxNumberOfSeat = NewMaxNumberOfSeat;
+                        this.maxNumberOfSeat = maxNumberOfSeat;
+                    }
+                } else
+                {
+                    this.maxNumberOfSeat = maxNumberOfSeat;
+                }
+
+            } catch
+            {
+                Console.WriteLine("Numero errato");
+                this.SetMaxNumberOfSeat();
+            }
+
+            
             this.numberOfSeatsReserved = numberOfSeatsReserved;
         }
 
