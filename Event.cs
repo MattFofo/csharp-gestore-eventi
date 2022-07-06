@@ -146,6 +146,10 @@ namespace csharp_gestore_eventi
         }
 
 
+        public uint GetNumberOfSeatsReserved()
+        {
+            return this.numberOfSeatsReserved;
+        }
 
 
 
@@ -161,7 +165,7 @@ namespace csharp_gestore_eventi
             
             try
             {
-                uint SeatsLeft = this.maxNumberOfSeat - this.numberOfSeatsReserved;
+                uint SeatsLeft = this.maxNumberOfSeat - seats;
 
                 this.numberOfSeatsReserved += seats;
             }
@@ -173,14 +177,23 @@ namespace csharp_gestore_eventi
 
         public void CancelBooking(uint seats)
         {
-            try
-            {
-                this.numberOfSeatsReserved -= seats;
-            }
-            catch (Exception)
+            if ((this.numberOfSeatsReserved -= seats) <= 0) //mi aspettavo un errore visto che sono uint e il risultato è negativo
             {
 
-                Console.WriteLine("Non ci sono posti da eliminare");
+                Console.WriteLine("Non ci sono prenotazioni da disdire");
+   
+            } else
+            {
+
+                try
+                {
+                    this.numberOfSeatsReserved -= seats;
+                }
+                catch (Exception)
+                {
+
+                    Console.WriteLine("valore errato");
+                }
             }
         }
     }

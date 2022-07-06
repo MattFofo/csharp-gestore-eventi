@@ -10,8 +10,8 @@ using csharp_gestore_eventi;
 
 
 string title = "Evento prova";
-DateTime date = Convert.ToDateTime("22/10/2019");
-uint maxNumberOfSeat = 0;
+DateTime date = Convert.ToDateTime("22/10/2030");
+uint maxNumberOfSeat = 1000;
 
 
 Event newEvent = new Event(title, date, maxNumberOfSeat);
@@ -19,3 +19,9 @@ Event newEvent = new Event(title, date, maxNumberOfSeat);
 Console.WriteLine(newEvent.GetTitle());
 Console.WriteLine(newEvent.GetDate());
 Console.WriteLine(newEvent.GetMaxNumberOfSeat());
+Console.WriteLine(newEvent.GetNumberOfSeatsReserved());
+
+newEvent.Booking(20000);
+Console.WriteLine(newEvent.GetNumberOfSeatsReserved());
+newEvent.CancelBooking(2);
+Console.WriteLine(newEvent.GetNumberOfSeatsReserved());
