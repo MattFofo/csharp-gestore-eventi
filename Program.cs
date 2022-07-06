@@ -11,7 +11,7 @@ using csharp_gestore_eventi;
 
 string title = "Evento prova";
 DateTime date = Convert.ToDateTime("22/10/2030");
-uint maxNumberOfSeat = 1000;
+uint maxNumberOfSeat = 20000;
 
 
 Event newEvent = new Event(title, date, maxNumberOfSeat);
@@ -21,7 +21,7 @@ Console.WriteLine(newEvent.GetDate());
 Console.WriteLine(newEvent.GetMaxNumberOfSeat());
 Console.WriteLine(newEvent.GetNumberOfSeatsReserved());
 
-newEvent.Booking(20000);
+newEvent.Booking(10);
 Console.WriteLine(newEvent.GetNumberOfSeatsReserved());
-newEvent.CancelBooking(2);
+newEvent.CancelBooking(12);
 Console.WriteLine(newEvent.GetNumberOfSeatsReserved());

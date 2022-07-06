@@ -177,7 +177,9 @@ namespace csharp_gestore_eventi
 
         public void CancelBooking(uint seats)
         {
-            if ((this.numberOfSeatsReserved -= seats) <= 0) //mi aspettavo un errore visto che sono uint e il risultato è negativo
+            uint reserved = this.numberOfSeatsReserved; 
+
+            if ((reserved -= seats) <= 0) //mi aspettavo un errore visto che sono uint e il risultato è negativo
             {
 
                 Console.WriteLine("Non ci sono prenotazioni da disdire");
