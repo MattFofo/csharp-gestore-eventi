@@ -11,7 +11,7 @@ using csharp_gestore_eventi;
 
 string title = "Evento prova";
 DateTime date = Convert.ToDateTime("22/10/2030");
-uint maxNumberOfSeat = 20000;
+int maxNumberOfSeat = 20000;
 
 
 Event newEvent = new Event(title, date, maxNumberOfSeat);

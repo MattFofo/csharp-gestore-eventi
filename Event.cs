@@ -12,11 +12,11 @@ namespace csharp_gestore_eventi
 
         private DateTime date;
 
-        private uint maxNumberOfSeat;
+        private int maxNumberOfSeat;
 
-        private uint numberOfSeatsReserved;
+        private int numberOfSeatsReserved;
 
-        public Event(string title, DateTime date, uint maxNumberOfSeat, uint numberOfSeatsReserved = 0)
+        public Event(string title, DateTime date, int maxNumberOfSeat, int numberOfSeatsReserved = 0)
         {
 
             if (title == "")
@@ -63,7 +63,7 @@ namespace csharp_gestore_eventi
                     {
                         Console.WriteLine("il numero dei posti non può essere 0");
                         Console.WriteLine("inserisci il numero di posti");
-                        uint NewMaxNumberOfSeat = uint.Parse(Console.ReadLine());
+                        int NewMaxNumberOfSeat = int.Parse(Console.ReadLine());
                         maxNumberOfSeat = NewMaxNumberOfSeat;
                         this.maxNumberOfSeat = maxNumberOfSeat;
                     }
@@ -122,7 +122,7 @@ namespace csharp_gestore_eventi
             
         }
 
-        public uint GetMaxNumberOfSeat()
+        public int GetMaxNumberOfSeat()
         {
             return this.maxNumberOfSeat;
         }
@@ -131,7 +131,7 @@ namespace csharp_gestore_eventi
         public void SetMaxNumberOfSeat()
         {
             Console.WriteLine("Inserisci numero di posti");
-            uint nSeats = uint.Parse(Console.ReadLine());
+            int nSeats = int.Parse(Console.ReadLine());
             try
             {
                 this.maxNumberOfSeat -= nSeats;
@@ -146,7 +146,7 @@ namespace csharp_gestore_eventi
         }
 
 
-        public uint GetNumberOfSeatsReserved()
+        public int GetNumberOfSeatsReserved()
         {
             return this.numberOfSeatsReserved;
         }
@@ -160,12 +160,12 @@ namespace csharp_gestore_eventi
             return formattedDate + " - "  + this.title;
         }
 
-        public void Booking(uint seats)
+        public void Booking(int seats)
         {
             
             try
             {
-                uint SeatsLeft = this.maxNumberOfSeat - seats;
+                int SeatsLeft = this.maxNumberOfSeat - seats;
 
                 this.numberOfSeatsReserved += seats;
             }
@@ -175,14 +175,14 @@ namespace csharp_gestore_eventi
             }
         }
 
-        public void CancelBooking(uint seats)
+        public void CancelBooking(int seats)
         {
-            uint reserved = this.numberOfSeatsReserved; 
+            int reserved = this.numberOfSeatsReserved; 
 
-            if ((reserved -= seats) <= 0) //mi aspettavo un errore visto che sono uint e il risultato è negativo
+            if ((reserved -= seats) <= 0)
             {
 
-                Console.WriteLine("Non ci sono prenotazioni da disdire");
+                Console.WriteLine("Si possono disdire al massimo {0} prenotazioni", this.numberOfSeatsReserved);
    
             } else
             {
