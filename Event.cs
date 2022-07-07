@@ -153,6 +153,14 @@ namespace csharp_gestore_eventi
 
 
 
+        public override string ToString()
+        {
+            string formattedDate = date.ToString("dd/MM/yyyy");
+
+            return formattedDate + " - " + this.title;
+        }
+
+
         public string ToString(DateTime date)
         {
             string formattedDate = date.ToString("dd/MM/yyyy");
