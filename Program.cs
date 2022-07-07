@@ -23,5 +23,7 @@ Console.WriteLine(newEvent.GetNumberOfSeatsReserved());
 
 newEvent.Booking(10);
 Console.WriteLine(newEvent.GetNumberOfSeatsReserved());
-newEvent.CancelBooking(12);
+newEvent.CancelBooking(8);
 Console.WriteLine(newEvent.GetNumberOfSeatsReserved());
+newEvent.SetMaxNumberOfSeat();
+Console.WriteLine(newEvent.GetMaxNumberOfSeat());

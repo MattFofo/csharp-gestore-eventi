@@ -132,15 +132,15 @@ namespace csharp_gestore_eventi
         {
             Console.WriteLine("Inserisci numero di posti");
             int nSeats = int.Parse(Console.ReadLine());
-            try
-            {
-                this.maxNumberOfSeat -= nSeats;
-            }
-            catch (Exception)
-            {
 
-                Console.WriteLine("Numero errato");
+            if ((this.maxNumberOfSeat - nSeats) <= 0)
+            {
+                Console.WriteLine("Numero di posti non può essere minore od ugiale a 0");
                 this.SetMaxNumberOfSeat();
+            } else
+            {
+                this.maxNumberOfSeat = nSeats;
+
             }
             
         }
@@ -185,9 +185,8 @@ namespace csharp_gestore_eventi
 
         public void CancelBooking(int seats)
         {
-            int reserved = this.numberOfSeatsReserved; 
 
-            if ((reserved -= seats) <= 0)
+            if ((this.numberOfSeatsReserved - seats) <= 0)
             {
 
                 Console.WriteLine("Si possono disdire al massimo {0} prenotazioni", this.numberOfSeatsReserved);
